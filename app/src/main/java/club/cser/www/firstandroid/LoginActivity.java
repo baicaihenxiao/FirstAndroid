@@ -26,8 +26,11 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,6 +95,38 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        CheckBox cb1 = (CheckBox) findViewById(R.id.checkbox3);
+        OnClickListener oc = new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (v.getId() == R.id.checkbox1)
+                {
+                    Toast.makeText(getApplicationContext(), "cb1", Toast.LENGTH_SHORT).show();
+                }
+                else if (v.getId() == R.id.checkbox3)
+                {
+                    CheckBox cb1 = (CheckBox) findViewById(R.id.checkbox1);
+                    CheckBox cb2 = (CheckBox) findViewById(R.id.checkbox2);
+                    cb1.setChecked(((CheckBox) v).isChecked());
+                    cb2.setChecked(((CheckBox) v).isChecked());
+
+                }
+            }
+        };
+        cb1.setOnClickListener(oc);
+        ((CheckBox) findViewById(R.id.checkbox1)).setOnClickListener(oc);
+
+        ((ImageView) findViewById(R.id.imageCFg)).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int sz = ImageView.ScaleType.values().length;
+                Toast.makeText(LoginActivity.this, ((ImageView) v).getScaleType().toString() + " " + ((ImageView) v).getScaleType().ordinal() + " " + sz, Toast.LENGTH_SHORT).show();
+                ((ImageView) v).setScaleType(ImageView.ScaleType.values()[(((ImageView) v).getScaleType().ordinal() + 1) % sz]);
+
+            }
+        });
     }
 
     private void populateAutoComplete() {

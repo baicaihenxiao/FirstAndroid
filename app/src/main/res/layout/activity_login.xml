@@ -72,6 +72,32 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox1"
+                android:text="123"/>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox2"
+                android:text="234"/>
+            <android.support.v7.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkbox3"
+                android:text="345"/>
+            
+            <ImageView
+                android:id="@+id/imageCFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/cfgirl"
+                android:background="#FF0000"
+                android:paddingTop="0px"
+                android:layout_marginTop="0px"
+                android:scaleType="fitStart"/>
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
