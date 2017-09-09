@@ -114,16 +114,26 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 }
             }
         };
+
         cb1.setOnClickListener(oc);
         ((CheckBox) findViewById(R.id.checkbox1)).setOnClickListener(oc);
+
+        ((TextView) findViewById(R.id.textImageScale)).setText(((ImageView) findViewById(R.id.imageCFg)).getScaleType().toString()
+                + " "
+                + ((ImageView) findViewById(R.id.imageCFg)).getScaleType().ordinal()
+                + " " + ImageView.ScaleType.values().length);
 
         ((ImageView) findViewById(R.id.imageCFg)).setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 int sz = ImageView.ScaleType.values().length;
-                Toast.makeText(LoginActivity.this, ((ImageView) v).getScaleType().toString() + " " + ((ImageView) v).getScaleType().ordinal() + " " + sz, Toast.LENGTH_SHORT).show();
                 ((ImageView) v).setScaleType(ImageView.ScaleType.values()[(((ImageView) v).getScaleType().ordinal() + 1) % sz]);
+                Toast.makeText(LoginActivity.this, ((ImageView) v).getScaleType().toString() + " " + ((ImageView) v).getScaleType().ordinal() + " " + sz, Toast.LENGTH_SHORT).show();
+                ((TextView) findViewById(R.id.textImageScale)).setText(((ImageView) v).getScaleType().toString()
+                        + " "
+                        + ((ImageView) v).getScaleType().ordinal()
+                        + " " + ImageView.ScaleType.values().length);
 
             }
         });

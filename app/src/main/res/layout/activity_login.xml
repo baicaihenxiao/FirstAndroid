@@ -28,7 +28,25 @@
             android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textImageScale"/>
+
+            <ImageView
+                android:id="@+id/imageCFg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0px"
+                android:layout_weight="0.18"
+                android:background="#FF0000"
+                android:paddingTop="0px"
+                android:scaleType="fitStart"
+                android:src="@drawable/cfgirl" />
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
@@ -88,15 +106,7 @@
                 android:id="@+id/checkbox3"
                 android:text="345"/>
             
-            <ImageView
-                android:id="@+id/imageCFg"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/cfgirl"
-                android:background="#FF0000"
-                android:paddingTop="0px"
-                android:layout_marginTop="0px"
-                android:scaleType="fitStart"/>
+
 
         </LinearLayout>
     </ScrollView>
