@@ -27,12 +27,15 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -118,25 +121,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         cb1.setOnClickListener(oc);
         ((CheckBox) findViewById(R.id.checkbox1)).setOnClickListener(oc);
 
-        ((TextView) findViewById(R.id.textImageScale)).setText(((ImageView) findViewById(R.id.imageCFg)).getScaleType().toString()
-                + " "
-                + ((ImageView) findViewById(R.id.imageCFg)).getScaleType().ordinal()
-                + " " + ImageView.ScaleType.values().length);
-
-        ((ImageView) findViewById(R.id.imageCFg)).setOnClickListener(new OnClickListener() {
+        ((TimePicker) findViewById(R.id.timeP)).setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
-            public void onClick(View v) {
-
-                int sz = ImageView.ScaleType.values().length;
-                ((ImageView) v).setScaleType(ImageView.ScaleType.values()[(((ImageView) v).getScaleType().ordinal() + 1) % sz]);
-                Toast.makeText(LoginActivity.this, ((ImageView) v).getScaleType().toString() + " " + ((ImageView) v).getScaleType().ordinal() + " " + sz, Toast.LENGTH_SHORT).show();
-                ((TextView) findViewById(R.id.textImageScale)).setText(((ImageView) v).getScaleType().toString()
-                        + " "
-                        + ((ImageView) v).getScaleType().ordinal()
-                        + " " + ImageView.ScaleType.values().length);
-
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+                ((TextView) findViewById(R.id.textTip)).setText(hourOfDay + ":" + minute);
             }
         });
+
+        ((DatePicker) findViewById(R.id.dateP)).init(2017, 10, 10, new DatePicker.OnDateChangedListener() {
+            @Override
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                ((TextView) findViewById(R.id.textTip)).setText(year + "-" + monthOfYear + "-" + dayOfMonth);
+            }
+        });
+
+
+
     }
 
     private void populateAutoComplete() {

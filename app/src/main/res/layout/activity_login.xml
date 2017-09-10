@@ -32,20 +32,25 @@
             android:weightSum="1">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/textTip"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textImageScale"/>
+                android:text="initializ"/>
 
-            <ImageView
-                android:id="@+id/imageCFg"
+            <TimePicker
+                android:id="@+id/timeP"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0px"
-                android:layout_weight="0.18"
-                android:background="#FF0000"
-                android:paddingTop="0px"
-                android:scaleType="fitStart"
-                android:src="@drawable/cfgirl" />
+                android:layout_height="wrap_content"></TimePicker>
+
+            <DatePicker
+                android:id="@+id/dateP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></DatePicker>
+
+            <AnalogClock
+                android:id="@+id/anaClo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
 
             <android.support.design.widget.TextInputLayout
